@@ -1,0 +1,42 @@
+﻿@page
+@model Never_bored.Pages.Bored.IndexModel
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">Do this stuff </p>
+                <h2 class="card-header display-4">@Model.Activity.Activity !</h2>
+                <p class="card-text">Type: @Model.Activity.Type</p>
+                <div class="card-columns">
+                    <form method="post">
+                        <label for="fave" class="card-text">Add to favorites: </label>
+                        <input class="card-text" type="checkbox" id="fave" asp-for="@Model.isFavorite" />
+                        <input asp-for="@Model.Activity.Activity" hidden />
+                        <input asp-for="@Model.Activity.Accessibility" hidden />
+                        <input asp-for="@Model.Activity.Key" hidden />
+                        <input asp-for="@Model.Activity.Link" hidden />
+                        <input asp-for="@Model.Activity.Participants" hidden />
+                        <input asp-for="@Model.Activity.Price" hidden />
+                        <input asp-for="@Model.Activity.Type" hidden />
+                        <input class="btn btn-outline-dark" type="submit" value="Submit" />
+                    </form>
+                </div>
+                <div class="card-columns">
+                    <a class="btn btn-info" asp-page="/Bored/Index">Another one!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Current number of favorites: </p>
+@if (Model.CookieActivities.Any())
+{
+    <h3>@Model.CookieActivities.Count()</h3>
+}
+
+<a class="text-center nav-link" asp-page="/Bored/Favorites">Check favorites</a>
+
+
+

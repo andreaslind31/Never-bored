@@ -1,0 +1,17 @@
+﻿@page
+@model Never_bored.Pages.Bored.FavoritesModel
+
+@if (Data.ActivityData.ListOfActivities.Any())
+{
+    <h3>Favorites:</h3>
+    <ul>
+        @foreach (var item in Data.ActivityData.ListOfActivities)
+        {
+            <li>@item.Activity</li>
+        }
+    </ul>
+}
+else
+{
+    <p>You dont have any favorites yet!</p>
+}
